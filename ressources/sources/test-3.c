@@ -20,7 +20,7 @@ usage(char *s)
 	    "    -di|-dh : partial derivation from i or j\n"
 	    "    -2|3|p|s : kernel [-1 1], kernel [-1 0 1], prewitt, sobel\n"
 	    "    -d : deriche derivative operator\n"
-	    "    -t|-n|-a : display mode (truncation, normalization, absolute value\n"
+	    "    -n|-a : display mode (normalization or absolute value\n"
 	    "    -i : inversion of output image\n"
 	    , s, s);
     exit(EXIT_FAILURE);
@@ -68,9 +68,7 @@ main(int argc, char *argv[])
     
     enum channel_disp_mode disp_mode;
 
-    if (strcmp(argv[iarg], "-t") == 0)
-	disp_mode = Cdm_truncate; 
-    else if (strcmp(argv[iarg], "-n") == 0)
+    if (strcmp(argv[iarg], "-n") == 0)
 	disp_mode = Cdm_normalize;
     else if (strcmp(argv[iarg], "-a") == 0)
 	disp_mode = Cdm_absval;

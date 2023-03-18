@@ -18,7 +18,7 @@ usage(char *s)
 	    "       %s -d ALPHA [-i] INPUT OUTPUT\n"
 
 	    "    Compute local maxima of gradient of INPUT.\n"
-	    "    -2|3|p|s : kernel [-1 1], kernel [-1 0 1], prewitt, sobel\n"
+	    "    -{2|3|p|s} : kernel [-1 1], kernel [-1 0 1], prewitt, sobel\n"
 	    "    -d : deriche derivative operator\n"
 	    "    -i : inversion of output image\n"
 	    , s, s);
@@ -110,7 +110,7 @@ main(int argc, char *argv[])
     float *f_result = gradient_local_max(di, dj, width, height);
     free(di);
     free(dj);
-    unsigned char *result = channel_to_uchar(f_result, width*height, Cdm_truncate);
+    unsigned char *result = channel_to_uchar(f_result, width*height, Cdm_absval);
 
     free(f_result);
 

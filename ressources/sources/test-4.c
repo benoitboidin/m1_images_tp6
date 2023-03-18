@@ -110,7 +110,7 @@ main(int argc, char *argv[])
     float *f_result = gradient_norm_eucl(di, dj, width*height);
     free(di);
     free(dj);
-    unsigned char *result = channel_to_uchar(f_result, width*height, Cdm_truncate);
+    unsigned char *result = channel_to_uchar(f_result, width*height, Cdm_absval);
     free(f_result);
 
     if (invert_output)
