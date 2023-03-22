@@ -24,11 +24,10 @@ float *convol1d_apply_3(float *channel, int width, int height, float kernel[3]){
     float *new_channel = malloc(size * sizeof(float));
 
     // Segmentation fault while accessing channel.
-    // for (int i = 1; i < size-1; i++){
-    //     printf("i = %d\n", i);
-    //     new_channel[i] = (channel[i-1] + channel[i] + channel[i+1])/3;
-    // }
-    
+    for (int i = 1; i < size-1; i++){
+        new_channel[i] = (channel[i-1] + channel[i] + channel[i+1])/3;
+    }
+
     printf("done\n");
     return new_channel;
 }
